@@ -1,0 +1,9 @@
+apiVersion: v2
+name: techblog
+description: techblog application Helm chart
+type: application
+version: 1.0.0
+dependencies:
+  - name: rpm-application-deployment
+    version: "0.3.0"
+    repository: file:///Users/kristjanvoolaid/rpm/rpm-application-deployment

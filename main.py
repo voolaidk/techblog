@@ -1,0 +1,16 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    print("hello world")
+    return {"message": "Hello world"}
+
+@app.get("/items/{item_id}")
+async def read_item(item_id):
+    return {"item_id": item_id}
+
+@app.get("/health", status_code=200)
+async def health():
+    return {"status": "ok"}
