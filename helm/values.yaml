@@ -4,7 +4,7 @@ rpm-application-deployment:
 
   image:
     registry: 421787948231.dkr.ecr.us-east-1.amazonaws.com
-    tag: 0.1.0
+    tag: 0.2.0
     pullPolicy: Never
 
   containerPorts:
