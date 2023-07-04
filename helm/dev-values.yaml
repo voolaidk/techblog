@@ -1,0 +1,96 @@
+rpm-application-deployment:
+
+  replicaCount: 1
+
+  image:
+    registry: 421787948231.dkr.ecr.us-east-1.amazonaws.com
+    tag: 0.3.0-rc.0
+    pullPolicy: Never
+
+  containerPorts:
+    - name: api-port
+      protocol: TCP
+      port: 8080
+
+  deploymentUpdate:
+    type: RollingUpdate
+    maxSurge: 25%
+    maxUnavailable: 25%
+
+  volumes: []
+  # - name: test-pvc
+  #   persistentVolumeClaim:
+  #     claimName: test-pvc
+
+  volumeMounts: []
+    # - name: test-pvc
+    #   mountPath: /tmp
+
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "1000m"
+
+  containerProbes:
+    startupProbes:
+      - path: /health
+        port: api-port
+        failureThreshold: 10
+        periodSeconds: 6
+    livenessProbes:
+      - path: /health
+        port: api-port
+        failureThreshold: 3
+        periodSeconds: 5
+    readinessProbes:
+      - path: /health
+        port: api-port
+        failureThreshold: 3
+        periodSeconds: 5
+
+  affinity: {}
+
+  topologySpreadConstraints: []
+    # - maxSkew: 1
+    #   topologyKey: "topology.kubernetes.io/zone"
+    #   whenUnSatisfiable: ScheduleAnyway
+    #   labelSelector:
+    #     app: test
+
+  podLabels: {}
+
+  env: []
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  # Service and Ingress
+  service:
+    type: ClusterIP
+    protocol: TCP
+    port:
+      name: api-port
+      number: 8080
+    targetPort: 8080
+
+  ingress:
+    enabled: false
+    annotations: {}
+    labels: {}
+    path: /
+    pathType: Prefix
+
+  # Hpa
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    metrics: {}
+    scaleDownPolicies: {}
+
+  # ConfigMap
+  configMap: {}
