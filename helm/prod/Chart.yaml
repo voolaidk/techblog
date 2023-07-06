@@ -1,0 +1,9 @@
+apiVersion: v2
+name: techblog
+description: techblog application Helm chart
+type: application
+version: 1.0.0
+dependencies:
+  - name: rpm-application-deployment
+    version: "0.3.1"
+    repository: oci://421787948231.dkr.ecr.us-east-1.amazonaws.com

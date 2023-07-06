@@ -4,4 +4,4 @@ metadata:
   name: my-custom-configmap
   namespace: {{ .Release.Namespace }}
 data:
-  CONFIG: "myconfig"
+  CONFIG: "dev"
