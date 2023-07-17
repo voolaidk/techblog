@@ -1,4 +1,4 @@
-FROM python:3.11.4-bullseye
+FROM python:3.11.4-slim
 
 RUN apt-get update -y && \
     apt-get upgrade -y
