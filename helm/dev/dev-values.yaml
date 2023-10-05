@@ -79,7 +79,7 @@ rpm-application-deployment:
       path: /health
 
       # The port on which the container exposes the startup probe. This can be describe as port number or name
-      port: api-port  
+      port: 8081  
 
       # Number of consecutive failures required to consider the probe as failed.
       failureThreshold: 10
@@ -93,7 +93,7 @@ rpm-application-deployment:
       path: /health
 
       # The port on which the container exposes the liveness probe. This can be describe as port number or name
-      port: api-port
+      port: 8081
 
       # Number of consecutive failures required to consider the probe as failed.
       failureThreshold: 3
@@ -107,7 +107,7 @@ rpm-application-deployment:
       path: /health
 
       # The port on which the container exposes the readiness probe. This can be describe as port number or name
-      port: api-port
+      port: 8081
 
       # Number of consecutive failures required to consider the probe as failed.
       failureThreshold: 3
