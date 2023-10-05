@@ -11,4 +11,4 @@ RUN pip3 install -r requirements.txt
 
 COPY ./* /techblog
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python3", "main.py"]
