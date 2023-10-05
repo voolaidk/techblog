@@ -13,7 +13,7 @@ rpm-application-deployment:
   ## Container image configuration
   image:
     registry: kristjanvoolaid
-    tag: latest
+    tag: v5
     pullPolicy: IfNotPresent
 
   ## Define a command or arguments for a container
