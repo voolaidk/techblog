@@ -8,7 +8,7 @@ app = FastAPI()
 @app.get("/v1")
 async def root():
     return {"message": "Hello world from version v1"}
-@app.get("/v1/health", status_code=200)
+@app.get("/health", status_code=200)
 async def health():
     return {"status": "ok"}
 
