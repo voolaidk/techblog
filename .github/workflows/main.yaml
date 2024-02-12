@@ -1,0 +1,13 @@
+name: Test env variables
+
+on: [push]
+
+jobs:
+  build:
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Sleep
+        run: |
+          sleep 50000
